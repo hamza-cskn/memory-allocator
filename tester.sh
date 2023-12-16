@@ -1,5 +1,5 @@
 echo "Compiling for tester mode..."
-gcc -DTESTER_MODE=1 allocator.c tester.c -o allocator
+gcc -DTESTER_MODE=1 aborter.c allocator.c tester.c -o allocator_test
 
 if [ $? -ne 0 ]; then
 	echo "Compilation failed."
@@ -10,7 +10,7 @@ echo "Compilation successful. Brute force testing starting..."
 echo "----- MALLOC  <-->  FREE -----"
 for ((i=1; i<=10000; i++))
 do
-	./allocator > output.txt
+	./allocator_test > output.txt
 
 	if [ $? -ne 0 ]; then
 		echo "Execution failed."
