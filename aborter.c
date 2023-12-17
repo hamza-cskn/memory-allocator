@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   aborter.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hcoskun <hcoskun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:14:08 by hamza             #+#    #+#             */
-/*   Updated: 2023/12/16 15:15:19 by hamza            ###   ########.fr       */
+/*   Updated: 2023/12/17 13:46:15 by hcoskun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 */
 void	abort_memory(void)
 {
-	memory_block	*memory_blocks;
-	memory_block	*next;
+	t_memory_block	*memory_blocks;
+	t_memory_block	*next;
 
 	register_pre_abort_func(NULL);
 	memory_blocks = get_memory_blocks()->next;

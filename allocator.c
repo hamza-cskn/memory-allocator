@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   allocator.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: hcoskun <hcoskun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:13:21 by hamza             #+#    #+#             */
-/*   Updated: 2023/12/16 15:14:06 by hamza            ###   ########.fr       */
+/*   Updated: 2023/12/17 15:22:52 by hcoskun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 	This function returns head of memory blocks
 	list.
 */
-memory_block	*get_memory_blocks(void)
+t_memory_block	*get_memory_blocks(void)
 {
-	static memory_block	memory_blocks = {NULL, NULL};
+	static t_memory_block	memory_blocks = {NULL, NULL};
 
 	return (&memory_blocks);
 }
@@ -39,13 +39,15 @@ memory_block	*get_memory_blocks(void)
 */
 int	append_memory_block(void *ptr)
 {
-	memory_block	*memory_blocks;
-	memory_block	*new;
+	t_memory_block	*memory_blocks;
+	t_memory_block	*new;
 
-	new = ALLOCATE_MEMORY(sizeof(memory_block));
+	if (!ptr)
+		return (BAD_EXIT);
+	new = ALLOCATE_MEMORY(sizeof(t_memory_block));
 	if (!new)
 		return (BAD_EXIT);
-	*new = (memory_block){.ptr = ptr, .next = NULL};
+	*new = (t_memory_block){.ptr = ptr, .next = NULL};
 	memory_blocks = get_memory_blocks();
 	while (memory_blocks->next != NULL)
 		memory_blocks = memory_blocks->next;
@@ -63,11 +65,13 @@ int	append_memory_block(void *ptr)
 */
 int	remove_memory_block(void *ptr)
 {
-	memory_block	*cur; 
-	memory_block	*prev;
+	t_memory_block	*cur; 
+	t_memory_block	*prev;
 
+	if (!ptr)
+		return (BAD_EXIT);
 	cur = get_memory_blocks();
-	while (cur->next != NULL)
+	while (cur != NULL)
 	{
 		if (cur->ptr == ptr)
 		{
@@ -117,6 +121,8 @@ void	*safe_malloc(int size)
 */
 void	safe_free(void *ptr)
 {
+	if (!ptr)
+		return;
 	remove_memory_block(ptr);
 	FREE_MEMORY(ptr);
 }

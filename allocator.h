@@ -25,11 +25,11 @@ typedef struct s_memory_block {
 	struct s_memory_block *next;
 } t_memory_block;
 
-void	*safe_malloc(int size);
-void	safe_free(void *ptr);
-t_memory_block *get_memory_blocks();
-void	abort_memory();
-void 	register_pre_abort_func(void (*abort_func)(void));
-void 	register_post_abort_func(void (*abort_func)(void));
+void			*safe_malloc(int size);
+void			safe_free(void *ptr);
+t_memory_block	*get_memory_blocks();
+void			abort_memory();
+void 			register_pre_abort_func(void (*abort_func)(void));
+void 			register_post_abort_func(void (*abort_func)(void));
 
 #endif

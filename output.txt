@@ -1,0 +1,7 @@
+test2
+MALLOC 7fb6a4c056c0
+MALLOC 7fb6a4c056d0
+PROGRAM LEVEL i know that memory of my program started to being aborted
+FREE 7fb6a4c056c0
+FREE 7fb6a4c056d0
+PROGRAM LEVEL i know that memory of my program completely aborted.
