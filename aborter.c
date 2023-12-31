@@ -17,7 +17,7 @@
 	Frees all memory blocks which allocated by using safe_malloc
 	function.
 */
-void	abort_memory(void)
+void free_memory(void)
 {
 	t_memory_block	*memory_blocks;
 	t_memory_block	*next;
@@ -32,6 +32,16 @@ void	abort_memory(void)
 		memory_blocks = next;
 	}
 	get_memory_blocks()->next = NULL;
+}
+
+/**
+* @brief frees all memory blocks which allocated by using safe_malloc
+* function and calls abort functions.
+*/
+void	abort_memory(void)
+{
+	register_pre_abort_func(NULL);
+	free_memory();
 	register_post_abort_func(NULL);
 }
 
