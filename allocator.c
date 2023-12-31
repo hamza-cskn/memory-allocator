@@ -15,12 +15,12 @@
 #define GOOD_EXIT 1
 #define BAD_EXIT  0
 
-/*
-	Global variables are forbidden, so we used
-	static variables to implement them.
-
-	This function returns head of memory blocks
-	list.
+/**
+* @brief Global variables are forbidden, so we used
+* static variables to implement them.
+*
+* This function returns head of memory blocks
+* list.
 */
 t_memory_block	*get_memory_blocks(void)
 {
@@ -29,13 +29,13 @@ t_memory_block	*get_memory_blocks(void)
 	return (&memory_blocks);
 }
 
-/*
-	This function basically adds new element to
-	the our memory blocks list.
+/**
+* @brief This function basically adds new element to
+* the our memory blocks list.
 
-	Return values:
-		if success, returns 1.
-		otherwise, returns 0.
+* @return
+* 	if success, returns 1.
+* 	otherwise, returns 0.
 */
 int	append_memory_block(void *ptr)
 {
@@ -55,13 +55,13 @@ int	append_memory_block(void *ptr)
 	return (GOOD_EXIT);
 }
 
-/*
-	This function basically scans memory blocks
-	to find pointer given and removes it.
-
-	Return values:
-		if success, returns 1.
-		otherwise, returns 0.
+/**
+* @brief This function basically scans memory blocks
+* to find pointer given and removes it.
+*
+* @return
+*	if success, returns 1.
+* otherwise, returns 0.
 */
 int	remove_memory_block(void *ptr)
 {
@@ -85,16 +85,16 @@ int	remove_memory_block(void *ptr)
 	return (BAD_EXIT);
 }
 
-/*
-	Allocates memory block using the malloc function
-	which you know.
+/**
+* @brief Allocates memory block using the malloc function
+* which you know.
 
-	However it stores every pointer and track them to
-	abort the program gracefully.
+* However it stores every pointer and track them to
+* abort the program gracefully.
 
-	Return values:
-		if success, returns allocated memory block.
-		otherwise, frees ALL memory blocks and returns null pointer.
+* @return
+*	if success, returns allocated memory block.
+*	otherwise, frees ALL memory blocks and returns null pointer.
 */
 void	*safe_malloc(int size)
 {
@@ -115,9 +115,9 @@ void	*safe_malloc(int size)
 	return (ptr);
 }
 
-/*
-	Frees memory block which allocated by using safe_malloc
-	function.
+/**
+* @brief frees memory block which allocated by using safe_malloc
+* function.
 */
 void	safe_free(void *ptr)
 {

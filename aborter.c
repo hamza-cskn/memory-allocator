@@ -13,16 +13,15 @@
 #include "allocator.h"
 #include <stdlib.h>
 
-/*
-	Frees all memory blocks which allocated by using safe_malloc
-	function.
+/**
+* @brief frees all memory blocks which allocated by using safe_malloc
+* function but does not call abort functions.
 */
 void free_memory(void)
 {
 	t_memory_block	*memory_blocks;
 	t_memory_block	*next;
 
-	register_pre_abort_func(NULL);
 	memory_blocks = get_memory_blocks()->next;
 	while (memory_blocks != NULL)
 	{
@@ -45,9 +44,9 @@ void	abort_memory(void)
 	register_post_abort_func(NULL);
 }
 
-/*
-	Registers abort function to call before when abort_memory
-	function is called.
+/**
+* @brief registers abort function to call before when abort_memory
+* function is called.
 */
 void	register_pre_abort_func(void (*abort_func)(void))
 {
@@ -59,9 +58,9 @@ void	register_pre_abort_func(void (*abort_func)(void))
 		func();
 }
 
-/*
-	Registers abort function to call after when abort_memory
-	function is called.
+/**
+* @brief registers abort function to call after when abort_memory
+* function is called.
 */
 void	register_post_abort_func(void (*abort_func)(void))
 {
