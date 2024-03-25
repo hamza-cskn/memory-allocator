@@ -5,6 +5,8 @@ The purpose of that repository is to help developers to manage their memories. I
 > 42 students should feel free to use the library because it obeys the Norminette rules. 
 
 ### Usage
+
+**Automatically frees if malloc fails**
 ```c
 /* anywhere of your code */
 char *string = safe_malloc(sizeof(char) * 10);
@@ -15,6 +17,16 @@ if (!string)
 char *new_string = safe_malloc(sizeof(char) * 10);
 if (!new_string)
 	return; /* there is no need to free old pointers. */
+```
+
+**You can free all allocates at once**
+
+```c
+/* anywhere of your code */
+char *string = safe_malloc(sizeof(char) * 10);
+if (!string)
+	return;
+free_memory(); // frees all allocated memories which allocated by using safe_malloc.
 ```
 
 ### Handle aborting
