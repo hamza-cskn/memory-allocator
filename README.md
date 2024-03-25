@@ -56,3 +56,14 @@ string[0] = 'a'; // it is safe!
 #### Manual Compiling for testing
 1. Clone this repository. `git clone git@github.com:hamza-cskn/memory-allocator.git`
 2. Set TESTER_MODE macro to 1 and compile: `gcc -DTESTER_MODE=1 allocator.c tester.c -o allocator`
+
+### About Norminette
+Norminette's rules stricts me to write testable codes. So I prepared `norm-fixer.sh`.
+
+When you decide to include the memory allocator to your project follow these steps.
+
+1. Clone the repository.
+2. Run `sh norm-fixer.sh`.
+3. Move allocator.h, allocator.c aborter.c to your project.
+4. Do not forget to add these files to your Makefile.
+5. You are ready to use `safe_malloc()` and `safe_free`.

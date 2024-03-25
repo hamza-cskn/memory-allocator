@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   allocator.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcoskun <hcoskun@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hamza <hamza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 15:13:21 by hamza             #+#    #+#             */
-/*   Updated: 2023/12/17 15:22:52 by hcoskun          ###   ########.fr       */
+/*   Updated: 2024/03/25 15:35:20 by hamza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "allocator.h"
+#include "allocator-testable.h"
 #define GOOD_EXIT 1
 #define BAD_EXIT  0
 
@@ -122,7 +122,7 @@ void	*safe_malloc(int size)
 void	safe_free(void *ptr)
 {
 	if (!ptr)
-		return;
+		return ;
 	remove_memory_block(ptr);
 	FREE_MEMORY(ptr);
 }
