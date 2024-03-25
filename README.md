@@ -1,8 +1,8 @@
 ## Memory Allocator
 
-Purpose of that repository is helping developers to manage their memories. It tracks your malloc functions and free your all allocated memory blocks automatically if one malloc fails. Use safe_malloc and safe_free to handle memory easily.
+The purpose of that repository is to help developers to manage their memories. It tracks your malloc functions and frees your all allocated memory blocks automatically if one malloc fails. Use safe_malloc and safe_free to handle memory easily.
 
-> 42 students should feel free to use the library because it obey the Norminette rules. 
+> 42 students should feel free to use the library because it obeys the Norminette rules. 
 
 ### Usage
 ```c
@@ -18,7 +18,7 @@ if (!new_string)
 ```
 
 ### Handle aborting
-Library allows you to register 2 handler function. Just give pointer
+The library allows you to register 2 handler functions. Just give a pointer
 of your handler function.
 
 And of course, you don't have to register a function. It is optional.
@@ -58,12 +58,12 @@ string[0] = 'a'; // it is safe!
 2. Set TESTER_MODE macro to 1 and compile: `gcc -DTESTER_MODE=1 allocator.c tester.c -o allocator`
 
 ### About Norminette
-Norminette's rules stricts me to write testable codes. So I prepared `norm-fixer.sh`.
+Norminette's rules force me to write testable codes. So I prepared `norm-fixer.sh`.
 
-When you decide to include the memory allocator to your project follow these steps.
+When you decide to include the memory allocator in your project follow these steps.
 
 1. Clone the repository.
 2. Run `sh norm-fixer.sh`.
-3. Move allocator.h, allocator.c aborter.c to your project.
+3. Move allocator.h, allocator.c, aborter.c to your project.
 4. Do not forget to add these files to your Makefile.
 5. You are ready to use `safe_malloc()` and `safe_free`.
